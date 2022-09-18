@@ -31,6 +31,23 @@ class UserController extends Controller
         return redirect()->route('index')
                         ->with('success','Student deleted successfully');
     }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'kelas' => 'required',
+        ]);
+        $data = Data::find($id);
+        $data->update($request->all());
+      
+        return redirect()->route('index')
+                        ->with('success','Student updated successfully');
+    }
+    public function geteditData($id) // untuk route web halaman edit data
+    {
+        $data = Data::find($id);
+        return view('edit',compact('data'));
+    }
     
   
 }

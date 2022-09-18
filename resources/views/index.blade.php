@@ -29,13 +29,13 @@
         <tr>
             <td>{{ ++$i }}</td>
             <td>{{ $data->name }}</td>
-            {{-- <td>{{ $data->kelas }}</td> --}}
+            <td>{{ $data->kelas }}</td>
             <td>
                 <form action="{{ route('destroy',$data->id) }}" method="POST">
    
-                    {{-- <a class="btn btn-info" href="{{ route('students.show',$student->id) }}">Show</a>
+                    {{-- <a class="btn btn-info" href="{{ route('show',$student->id) }}">Show</a> --}}
     
-                    <a class="btn btn-primary" href="{{ route('students.edit',$student->id) }}">Edit</a> --}}
+                    <a class="btn btn-primary" href="{{ route('edit',$data->id) }}">Edit</a>
    
                     @csrf
                     @method('DELETE')
